@@ -1,4 +1,15 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import Link from "next/link";
+
 export default function Footer() {
+  const [year, setYear] = useState("");
+
+  useEffect(() => {
+    setYear(new Date().getFullYear().toString());
+  }, []);
+
   return (
     <footer className="bg-[var(--primary)] text-white py-10 mt-10">
       <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -16,28 +27,27 @@ export default function Footer() {
           <h3 className="text-lg font-semibold mb-3">Navigasi</h3>
           <ul className="space-y-2 text-white/80 text-sm">
             <li>
-              <a href="/" className="hover:text-white transition">
+              <Link href="/" className="hover:text-white transition">
                 Beranda
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/#paket" className="hover:text-white transition">
+              <Link href="/#paket" className="hover:text-white transition">
                 Paket
-              </a>
+              </Link>
             </li>
-
             <li>
-              <a href="/#testimoni" className="hover:text-white transition">
+              <Link href="/#testimoni" className="hover:text-white transition">
                 Testimoni
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 href="/#area-pelayanan"
                 className="hover:text-white transition"
               >
                 Area Pelayanan
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -55,7 +65,7 @@ export default function Footer() {
 
       {/* Copyright */}
       <div className="border-t border-white/20 mt-8 pt-4 text-center text-white/70 text-sm">
-        © {new Date().getFullYear()} Aqiqah Berkah. All rights reserved.
+        © {year || "...."} RajaAqiqah. All rights reserved.
       </div>
     </footer>
   );

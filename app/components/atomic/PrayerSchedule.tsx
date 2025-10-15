@@ -87,25 +87,27 @@ export default function PrayerSchedule() {
 
   return (
     <div
-      className="hidden lg:flex w-[250px] xl:w-[280px] mt-10 mx-auto rounded-xl justify-around py-4 flex flex-col md:flex-row items-center gap-2 bg-cover bg-center"
+      className="
+        flex flex-col lg:flex-row items-center justify-between 
+        w-full max-w-5xl mx-auto mt-10 p-6 rounded-2xl
+        bg-cover bg-center text-white shadow-lg
+      "
       style={{
         backgroundImage: "url('/bg-solat.jpg')",
-        boxShadow: "0px 4px 6px rgba(0,0,0,0.6)",
         backgroundBlendMode: "overlay",
       }}
     >
-      {/* Kiri: Jam dan Tanggal */}
-      <div className="flex flex-col items-center md:items-start text-center md:text-left text-white w-auto">
-        <div className="text-2xl font-bold text-[var(--secondary)]">
+      {/* Kiri: Waktu & Lokasi */}
+      <div className="flex flex-col items-center lg:items-start text-center lg:text-left gap-2">
+        <div className="text-3xl font-bold text-[var(--secondary)]">
           {now.format("HH:mm:ss")}
         </div>
-        <div className="my-1 text-lg">{now.format("dddd, D MMMM YYYY")}</div>
-        {/* <div className="text-sm mb-2">{todayHijri}</div> */}
+        <div className="text-lg">{now.format("dddd, D MMMM YYYY")}</div>
 
         <select
           value={city}
           onChange={(e) => setCity(e.target.value)}
-          className="border rounded-lg px-3 py-1 shadow-sm focus:outline-none focus:ring-2 text-gray-800"
+          className="mt-2 border border-white/40 bg-white/90 text-gray-800 rounded-lg px-3 py-1 shadow-sm focus:outline-none focus:ring-2 focus:ring-white/50"
         >
           {Object.keys(cityCoordinates).map((c) => (
             <option key={c} value={c}>
@@ -116,28 +118,18 @@ export default function PrayerSchedule() {
       </div>
 
       {/* Kanan: Jadwal Sholat */}
-      <div
-        className="
-          flex gap-4 w-full md:w-2/3
-          overflow-x-auto md:overflow-x-visible
-          snap-x snap-mandatory
-          scrollbar-hide
-        "
-      >
+      <div className="flex flex-wrap justify-center gap-3 mt-6 lg:mt-0 lg:ml-6">
         {prayerOrder.map((p) => (
           <div
             key={p.key}
-            className={`
-              flex flex-col items-center justify-center rounded-lg p-4 transition-all
-              w-[110px] snap-center backdrop-blur-[2px] shadow-2xl
+            className={`flex flex-col items-center justify-center w-[110px] p-3 rounded-xl text-center transition-all
               ${
                 isNowInPrayerTime(p.key)
-                  ? "bg-red-800/80 text-white scale-105"
-                  : "bg-white/20 text-gray-100 border-t border-r border-white/20"
-              }
-            `}
+                  ? "bg-red-700/80 text-white scale-105 shadow-lg"
+                  : "bg-white/20 text-gray-100 border border-white/30"
+              }`}
           >
-            <div className="text-lg">{p.label}</div>
+            <div className="text-base font-medium">{p.label}</div>
             <div className="text-xl font-semibold">
               {prayerTimes[p.key as keyof PrayerTimesState]}
             </div>

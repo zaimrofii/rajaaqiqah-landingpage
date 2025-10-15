@@ -1,5 +1,6 @@
 import Image from "next/image";
 import CTAbutton from "../atomic/CTAbutton";
+import Link from "next/link";
 
 export default function AreaPelayananSection() {
   return (
@@ -19,7 +20,7 @@ export default function AreaPelayananSection() {
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10">
         {/* Map sebagai gambar */}
         <div className="flex-1 w-full rounded-2xl overflow-hidden shadow-lg">
-          <a
+          <Link
             href="https://www.google.com/maps/place/RAJA+AQIQAH+QURBAN+%26+CATERING/@-6.358103,106.8197531,17z/data=!3m1!4b1!4m6!3m5!1s0x2e69e938163c2fc5:0x991fdf6d34ef1471!8m2!3d-6.358103!4d106.8197531!16s%2Fg%2F11f7t1jq5x?entry=ttu&g_ep=EgoyMDI1MTAwNy4wIKXMDSoASAFQAw%3D%3D"
             target="_blank"
             rel="noopener noreferrer"
@@ -29,7 +30,7 @@ export default function AreaPelayananSection() {
               alt="Lokasi Raja Aqiqah Qurban & Catering"
               className="w-full h-auto object-cover rounded-2xl shadow-lg"
             />
-          </a>
+          </Link>
         </div>
 
         {/* Info Area */}
@@ -51,14 +52,14 @@ export default function AreaPelayananSection() {
             </p>
             <p>
               ☎️ <b>Telepon / WhatsApp : </b>
-              <a
+              <Link
                 href="https://wa.me/6281284126458"
                 className="text-[var(--primary)] hover:underline"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 0812-8412-6458
-              </a>
+              </Link>
             </p>
             <p>
               ⏰ <b>Jam Operasional : </b>
