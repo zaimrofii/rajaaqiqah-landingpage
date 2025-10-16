@@ -97,7 +97,7 @@ export default function Navbar() {
           className={`flex flex-col gap-4 px-6 pb-5 font-medium ${
             scrolled
               ? "bg-white text-[var(--primary)]"
-              : "bg-[var(--primary)] text-[var(--background)]"
+              : "bg-[var(--primary)] text-gray-100"
           }`}
         >
           {menuItems.map((item) => (
