@@ -87,8 +87,7 @@ export default function PrayerSchedule() {
 
   return (
     <div
-      className="
-        flex flex-col lg:flex-row items-center justify-between 
+      className=" hidden md:flex flex-col lg:flex-row items-center justify-between 
         w-full max-w-5xl mx-auto mt-10 p-6 rounded-2xl
         bg-cover bg-center text-white shadow-lg
       "

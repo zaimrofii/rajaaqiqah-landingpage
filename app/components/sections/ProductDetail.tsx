@@ -33,7 +33,7 @@ const ProductDetail: React.FC = () => {
   }
 
   return (
-    <div className="max-w-6xl mx-auto p-6">
+    <div className="max-w-6xl mx-auto p-6 bg-gray-100">
       <div className="flex flex-col md:flex-row gap-10">
         {/* Left */}
         <div className="flex-1">

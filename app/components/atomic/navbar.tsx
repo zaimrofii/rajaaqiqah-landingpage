@@ -28,7 +28,7 @@ export default function Navbar() {
       className={`w-full z-50 transition-all duration-300 ${
         scrolled
           ? "fixed top-0 bg-white text-[var(--primary)] shadow-md"
-          : "mt-0 md:mt-5 bg-[var(--primary)] text-[var(--background)]"
+          : "mt-0 md:mt-5 bg-[var(--primary)] text-gray-100"
       }`}
     >
       {/* Kontainer Utama */}
