@@ -1,121 +1,119 @@
 "use client";
 
-import { Star, ChevronLeft, ChevronRight } from "lucide-react";
-import { useRef } from "react";
+import { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Star } from "lucide-react";
 
-const testimonials = [
+interface Testimonial {
+  id: number;
+  name: string;
+  role: string;
+  text: string;
+  image: string;
+}
+
+const testimonials: Testimonial[] = [
   {
-    name: "Shifa Aulia",
-    date: "12 September 2025",
-    message: "Alhamdulillah... Bagus, Cekatan, ramah dan Top masakannya....",
+    id: 1,
+    name: "Bunda Atiche Motik",
+    role: "keluarga Motik",
+    text: "Gulainya enak banget, bikin ketagihan dan ingin pesan lagi, terima kasih ya ndi .. sukses dan maju terus.",
+    image: "/testimoni-1.jpg",
   },
   {
-    name: "Bayu Firdaus",
-    date: "5 Agustus 2020",
-    message: "Aqiqah bagus, enak banget dan terjangkau.",
+    id: 2,
+    name: "Bunda Neno Warisman",
+    role: "Aktifis Pendidikan",
+    text: "20 tahun sudah saya ikut menjadi pendorong utama lahirnya generasi islam yang lebih baik, satu pilar yang harus dipenuhi untuk mewujudkan itu adalah dengan mengaqiqahkan mereka dan mengqurbankan atas nama mereka. Raja Aqiqah mempermudah orang tua melakukannya dan terbaik dalam melayani. saya memilih Raja Aqiqah dan pastikanlah anda juga",
+    image: "/testimoni-2.jpg",
   },
   {
-    name: "Shifa Aulia",
-    date: "12 September 2025",
-    message: "Alhamdulillah... Bagus, Cekatan, ramah dan Top masakannya....",
-  },
-  {
-    name: "Bayu Firdaus",
-    date: "5 Agustus 2020",
-    message: "Aqiqah bagus, enak banget dan terjangkau.",
+    id: 3,
+    name: "Hermawan Kertajaya",
+    role: "Founder Markplus",
+    text: "Selamat menang di startup icon honda, Raja Domba satenya empuk dan gulainya woww..!!",
+    image: "/testimoni-3.jpg",
   },
 ];
 
-export default function TestimonialsSection() {
-  const scrollRef = useRef<HTMLDivElement>(null);
+export default function TestimonialCarousel() {
+  const [index, setIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
-  const scroll = (direction: "left" | "right") => {
-    if (scrollRef.current) {
-      const { scrollLeft, clientWidth } = scrollRef.current;
-      const scrollAmount = clientWidth * 0.8;
-      scrollRef.current.scrollTo({
-        left:
-          direction === "left"
-            ? scrollLeft - scrollAmount
-            : scrollLeft + scrollAmount,
-        behavior: "smooth",
-      });
+  // ⏱️ Ganti testimonial otomatis setiap 5 detik (jika tidak dijeda)
+  useEffect(() => {
+    if (!isPaused) {
+      intervalRef.current = setInterval(() => {
+        setIndex((prev) => (prev + 1) % testimonials.length);
+      }, 5000);
     }
-  };
+
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+  }, [isPaused]);
+
+  // 🖱️ Pause ketika hover (desktop) dan tahan (mobile)
+  const handlePause = () => setIsPaused(true);
+  const handleResume = () => setIsPaused(false);
 
   return (
-    <section className="w-full bg-white py-16" id="testimoni">
-      {/* Tagline */}
-      <div className="text-center mb-10 px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-[var(--primary)]">
-          Apa Kata Mereka?
-        </h2>
-        <p className="text-gray-600 mt-2">
-          Testimoni pelanggan yang sudah mempercayakan aqiqahnya kepada kami
-        </p>
-      </div>
-
-      {/* Carousel */}
-      <div className="relative max-w-6xl mx-auto px-6">
-        {/* Tombol Kiri */}
-        <button
-          onClick={() => scroll("left")}
-          className="absolute left-0 top-1/2 -translate-y-1/2 bg-[var(--primary)] text-white p-2 rounded-full shadow-md hover:bg-[var(--secondary)] transition z-10"
-        >
-          <ChevronLeft />
-        </button>
-
-        {/* Wrapper Scroll */}
-        <div
-          ref={scrollRef}
-          className="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory px-2 pb-4"
-          style={{ scrollbarWidth: "none" }}
-        >
-          {testimonials.map((t, index) => (
-            <div
-              key={index}
-              className="min-w-[280px] sm:min-w-[320px] md:min-w-[350px] snap-center bg-white border border-gray-200 rounded-xl shadow-md hover:shadow-lg transition-all p-6 flex flex-col justify-between"
-            >
-              {/* Profil */}
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 rounded-full bg-[var(--secondary)] text-white flex items-center justify-center text-xl font-bold">
-                  {t.name[0]}
-                </div>
-                <div>
-                  <p className="font-semibold text-[var(--primary)]">
-                    {t.name}
-                  </p>
-                  <p className="text-gray-500 text-sm">{t.date}</p>
-                </div>
-              </div>
-
-              {/* Rating Bintang */}
-              <div className="flex mb-3">
-                {[...Array(5)].map((_, starIndex) => (
-                  <Star
-                    key={starIndex}
-                    size={18}
-                    fill="var(--secondary)"
-                    stroke="var(--secondary)"
-                  />
-                ))}
-              </div>
-
-              {/* Isi Testimoni */}
-              <p className="text-gray-700 italic leading-relaxed">
-                {t.message}
-              </p>
+    <section
+      id="testimoni"
+      className="bg-gray-100 py-16 px-4 flex justify-center select-none"
+    >
+      <div
+        className="relative w-full max-w-5xl"
+        onMouseEnter={handlePause}
+        onMouseLeave={handleResume}
+        onTouchStart={handlePause}
+        onTouchEnd={handleResume}
+      >
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={testimonials[index].id}
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -50 }}
+            transition={{ duration: 0.6 }}
+            className="bg-white rounded-2xl shadow-lg flex flex-col md:flex-row overflow-hidden"
+          >
+            {/* 🖼️ Gambar sebelah kiri */}
+            <div className="md:w-1/3 w-full h-74 md:h-auto">
+              <img
+                src={testimonials[index].image}
+                alt={testimonials[index].name}
+                className="w-full h-full object-cover"
+              />
             </div>
-          ))}
-        </div>
 
-        {/* Tombol Kanan */}
-        <button
-          onClick={() => scroll("right")}
-          className="absolute right-0 top-1/2 -translate-y-1/2 bg-[var(--primary)] text-white p-2 rounded-full shadow-md hover:bg-[var(--secondary)] transition z-10"
-        >
-          <ChevronRight />
-        </button>
+            {/* 💬 Konten kanan */}
+            <div className="md:w-2/3 w-full p-8 flex flex-col justify-between">
+              <div>
+                {/* ⭐ Icon bintang lima */}
+                <div className="flex text-yellow-500 mb-4">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} className="w-5 h-5 fill-yellow-400" />
+                  ))}
+                </div>
+
+                {/* 📝 Teks testimoni */}
+                <p className="text-gray-700 text-lg italic mb-6">
+                  “{testimonials[index].text}”
+                </p>
+              </div>
+
+              {/* 👤 Nama & Jabatan */}
+              <div>
+                <h3 className="font-semibold text-xl text-gray-900">
+                  {testimonials[index].name}
+                </h3>
+                <p className="text-gray-500">{testimonials[index].role}</p>
+              </div>
+            </div>
+          </motion.div>
+        </AnimatePresence>
       </div>
     </section>
   );

@@ -30,7 +30,7 @@ export default function ProdukSection() {
         "pengolahan 2 menu : \n 50 porsi teriaki/ semur/ rendang, 50 porsi gulai",
       longDesc:
         "Nikmati kebahagiaan aqiqah dengan biaya terjangkau, tetap halal, bersih, dan penuh berkah untuk keluarga tercinta Anda setiap saat.",
-      images: ["/paket1.jpg", "/paket2.jpg", "/paket3.jpg"],
+      images: ["/paket1.jpg"],
     },
     {
       id: "paket-istimewa",
@@ -41,7 +41,7 @@ export default function ProdukSection() {
         "pengolahan 2 menu : \n 70 porsi teriaki/ semur/ rendang, 70 porsi gulai",
       longDesc:
         "Aqiqah praktis dan lengkap, dari pemilihan hewan, penyembelihan, hingga pengemasan rapi untuk mempermudah momen spesial keluarga.",
-      images: ["/paket2.jpg", "/paket1.jpg", "/paket3.jpg"],
+      images: ["/paket2.jpg"],
     },
     {
       id: "paket-premium",
@@ -63,7 +63,7 @@ export default function ProdukSection() {
         "pengolahan 2 menu : \n 100 porsi teriaki/ semur/ rendang, 100 porsi gulai",
       longDesc:
         "Aqiqah eksklusif tanpa kompromi, hewan pilihan, pelayanan full service, kemasan mewah, dan pengalaman berkesan bagi seluruh keluarga.",
-      images: ["/paket2.jpg", "/paket3.jpg", "/paket1.jpg"],
+      images: ["/paket2.jpg"],
     },
   ];
 
