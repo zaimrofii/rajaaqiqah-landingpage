@@ -55,11 +55,13 @@ export default function Footer() {
         {/* Kontak */}
         <div>
           <h3 className="text-lg font-semibold mb-3">Hubungi Kami</h3>
-          <p className="text-white/80 text-sm">
+          {/* <p className="text-white/80 text-sm">
             Jl. Contoh Raya No. 123, Jakarta
+          </p> */}
+          <p className="text-white/80 text-sm">Telp: 0812-8412-6458</p>
+          <p className="text-white/80 text-sm">
+            Email: farmmajubersama@gmail.com
           </p>
-          <p className="text-white/80 text-sm">Telp: 0812-3456-7890</p>
-          <p className="text-white/80 text-sm">Email: info@aqiqahberkah.com</p>
         </div>
       </div>
 
