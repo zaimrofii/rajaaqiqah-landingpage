@@ -78,9 +78,9 @@ export default function TestimonialCarousel() {
             setIsPaused(true);
             prev();
           }}
-          className="absolute left-2 top-1/2 -translate-y-1/2 p-2 bg-orange-400 shadow rounded-full hover:scale-105 transition z-10"
+          className="absolute left-2 top-1/2 -translate-y-1/2 p-2 bg-orange-400/60 shadow rounded-full hover:scale-105 transition z-10"
         >
-          <ArrowLeft className="w-8 h-8 text-white" />
+          <ArrowLeft className="w-5 h-5 text-white" />
         </button>
 
         {/* Panah kanan */}
@@ -89,9 +89,9 @@ export default function TestimonialCarousel() {
             setIsPaused(true);
             next();
           }}
-          className="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-orange-400 shadow rounded-full hover:scale-105 transition z-10"
+          className="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-orange-400/60 shadow rounded-full hover:scale-105 transition z-10"
         >
-          <ArrowRight className="w-8 h-8 text-white" />
+          <ArrowRight className="w-5 h-5 text-white" />
         </button>
 
         <AnimatePresence mode="wait">
