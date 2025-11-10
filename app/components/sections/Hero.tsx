@@ -14,7 +14,7 @@ export default function HeroSection() {
       }}
     >
       {/* Overlay gelap agar teks terlihat jelas */}
-      <div className="absolute inset-0 bg-black/40"></div>
+      <div className="absolute inset-0 bg-green-950/50"></div>
 
       {/* Konten Tengah */}
       <motion.div

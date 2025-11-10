@@ -25,23 +25,23 @@ export default function ProdukSection() {
       id: "paket-barokah",
       name: "Paket Aqiqah Barokah",
       price: 1750000,
-      img: "/paket1.jpg",
+      img: "/paket1-1.jpg",
       shortDesc:
         "pengolahan 2 menu : \n 50 porsi teriaki/ semur/ rendang, 50 porsi gulai",
       longDesc:
         "Nikmati kebahagiaan aqiqah dengan biaya terjangkau, tetap halal, bersih, dan penuh berkah untuk keluarga tercinta Anda setiap saat.",
-      images: ["/paket1.jpg"],
+      images: ["/paket1-1.jpg"],
     },
     {
       id: "paket-istimewa",
       name: "Paket Aqiqah Istimewa",
       price: 2000000,
-      img: "/paket2.jpg",
+      img: "/paket1-2.jpg",
       shortDesc:
         "pengolahan 2 menu : \n 70 porsi teriaki/ semur/ rendang, 70 porsi gulai",
       longDesc:
         "Aqiqah praktis dan lengkap, dari pemilihan hewan, penyembelihan, hingga pengemasan rapi untuk mempermudah momen spesial keluarga.",
-      images: ["/paket2.jpg"],
+      images: ["/paket1-2.jpg"],
     },
     {
       id: "paket-premium",
@@ -52,18 +52,18 @@ export default function ProdukSection() {
         "pengolahan 2 menu : \n 80 porsi teriaki/ semur/ rendang, 80 porsi gulai",
       longDesc:
         "Rasakan layanan aqiqah premium, dengan kualitas hewan terbaik, proses profesional, serta distribusi rapi dan elegan untuk tamu istimewa.",
-      images: ["/paket3.jpg", "/paket1.jpg", "/paket2.jpg"],
+      images: ["/paket1-3.jpg", "/paket1-1.jpg", "/paket1-2.jpg"],
     },
     {
       id: "paket-sultan",
       name: "Paket Aqiqah Sultan",
       price: 2750000,
-      img: "/paket4.jpg",
+      img: "/paket1-4.jpg",
       shortDesc:
         "pengolahan 2 menu : \n 100 porsi teriaki/ semur/ rendang, 100 porsi gulai",
       longDesc:
         "Aqiqah eksklusif tanpa kompromi, hewan pilihan, pelayanan full service, kemasan mewah, dan pengalaman berkesan bagi seluruh keluarga.",
-      images: ["/paket2.jpg"],
+      images: ["/paket1-2.jpg"],
     },
   ];
 

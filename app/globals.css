@@ -3,7 +3,9 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --primary: #780e12;
+  /* --primary: #780e12;*/
+  --primary: #004622;
+  /* --primary: #008c3f; */
   --secondary: #fb9a12;
 }
 
