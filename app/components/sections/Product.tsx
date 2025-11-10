@@ -47,7 +47,7 @@ export default function ProdukSection() {
       id: "paket-premium",
       name: "Paket Aqiqah Premium",
       price: 2300000,
-      img: "/paket3.jpg",
+      img: "/paket1-3.jpg",
       shortDesc:
         "pengolahan 2 menu : \n 80 porsi teriaki/ semur/ rendang, 80 porsi gulai",
       longDesc:
