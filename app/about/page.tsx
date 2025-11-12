@@ -1,8 +1,43 @@
+"use client";
+
 import Image from "next/image";
 import Navbar from "../components/atomic/navbar";
 import Footer from "../components/sections/Footer";
+import { fbq } from "../utils/metaPixel";
+import { useEffect, useRef } from "react";
 
 export default function AboutSection() {
+  const visiMisiRef = useRef(null);
+  const hasTracked = useRef(false); // agar tidak kirim event berkali-kali
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (entry.isIntersecting && !hasTracked.current) {
+          fbq("ViewContent", {
+            section: "Visi Misi",
+            page: "About Section",
+          });
+          hasTracked.current = true;
+        }
+      },
+      { threshold: 0.5 } // 50% dari elemen terlihat
+    );
+
+    if (visiMisiRef.current) {
+      observer.observe(visiMisiRef.current);
+    }
+
+    return () => {
+      if (visiMisiRef.current) observer.unobserve(visiMisiRef.current);
+    };
+  }, []);
+
+  const handleCTAclick = (source) => {
+    fbq("CTA_Click", { source }); // Tracking click ke Meta Pixel
+  };
+
   return (
     <>
       <Navbar />
@@ -32,6 +67,7 @@ export default function AboutSection() {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-[color:var(--primary)] text-gray-50 font-bold py-3 px-8 rounded-full shadow-lg hover:scale-105 transition-all duration-300"
+              onClick={() => handleCTAclick("ask about button")}
             >
               Tanya Detail Proses Syar’i (Hubungi via WA)
             </a>
@@ -182,7 +218,10 @@ export default function AboutSection() {
 
           <div className="flex flex-col md:flex-row gap-6 justify-center">
             {/* Card Visi */}
-            <div className="bg-white shadow-md rounded-2xl p-6 flex-1">
+            <div
+              className="bg-white shadow-md rounded-2xl p-6 flex-1"
+              ref={visiMisiRef}
+            >
               <h4 className="text-xl font-semibold text-[var(--primary)] mb-2">
                 Visi
               </h4>

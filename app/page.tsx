@@ -1,5 +1,5 @@
 import Navbar from "./components/atomic/navbar";
-import PrayerSchedule from "./components/atomic/PrayerSchedule";
+// import PrayerSchedule from "./components/atomic/PrayerSchedule";
 import AreaPelayananSection from "./components/sections/AreaPelayanan";
 import CustomBudgetSection from "./components/sections/custom";
 import Footer from "./components/sections/Footer";
@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <PrayerSchedule />
+      {/* <PrayerSchedule /> */}
       <HeroSection />
       <ProsesAqiqahSection />
       <ProdukSection />

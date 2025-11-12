@@ -17,7 +17,7 @@ export default function CustomBudgetSection() {
             Pilih paket aqiqah sesuai kemampuan, dan kami bantu sesuaikan menu
             serta porsi terbaik tanpa mengurangi kualitas.
           </p>
-          <CTAbutton />
+          <CTAbutton source="custom section" />
         </div>
 
         {/* Image Section */}

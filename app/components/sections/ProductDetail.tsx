@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import CTAbutton from "../atomic/CTAbutton";
+import { fbq } from "../../utils/metaPixel";
 
 interface Product {
   id: string;
@@ -23,6 +24,12 @@ const ProductDetail: React.FC = () => {
       setSelectedImage(data.images[0]);
     }
   }, []);
+  useEffect(() => {
+    fbq("ViewContent", {
+      content_name: product ? product.name : "product detail",
+      content_category: "Aqiqah Packages",
+    });
+  }, [product]);
 
   if (!product) {
     return (
@@ -73,7 +80,7 @@ const ProductDetail: React.FC = () => {
             {product.shortDesc}
           </p>
 
-          <CTAbutton />
+          <CTAbutton source="product detail" />
         </div>
       </div>
 

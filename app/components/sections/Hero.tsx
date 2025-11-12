@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import CTAbutton from "../atomic/CTAbutton";
 
 export default function HeroSection() {
   return (
@@ -31,14 +32,7 @@ export default function HeroSection() {
           profesional, daging segar, dan cita rasa lezat — semua tanpa repot.
         </p>
 
-        <Link
-          href="https://wa.me/6281284126458"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block bg-[var(--secondary)] text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:scale-105 transition-transform duration-300"
-        >
-          Pesan Sekarang!
-        </Link>
+        <CTAbutton source="hero section" />
       </motion.div>
     </section>
   );

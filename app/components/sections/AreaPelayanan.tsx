@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import CTAbutton from "../atomic/CTAbutton";
 import Link from "next/link";

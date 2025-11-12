@@ -1,8 +1,9 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { fbq } from "../../utils/metaPixel";
 
 // ✅ Definisikan tipe data produk
 interface Product {
@@ -86,6 +87,13 @@ export default function ProdukSection() {
     localStorage.setItem("selectedProduct", JSON.stringify(product));
     router.push("/product-detail");
   };
+
+  useEffect(() => {
+    fbq("ViewContent", {
+      content_name: "Product Section",
+      content_category: "Aqiqah Packages",
+    });
+  }, []);
 
   return (
     <section
